@@ -31,9 +31,12 @@ type SectionProps = PropsWithChildren<{
 
 function Section({children, title}: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-  useEffect(() => {
+ useEffect(() => {
+  setTimeout(()=>{
     SplashScreen.hide();
-  }, []);
+  },1000)
+    
+  }, []); 
   return (
     <View style={styles.sectionContainer}>
       <Text
