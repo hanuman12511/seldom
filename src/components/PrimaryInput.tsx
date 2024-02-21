@@ -1,4 +1,4 @@
-import { Image, TextInput, View,StyleSheet } from "react-native"
+import { Image, TextInput, View,StyleSheet, TouchableOpacity, Alert } from "react-native"
 import React from 'react';
 import PrimaryImage from "./PrimaryImage";
 import { icons } from "../assets/appIcons";
@@ -14,15 +14,19 @@ interface PrimaryInputProps{
     inputicon?:boolean
     inputimage?:any
     inputvisibleicon?:boolean
-  
+    visibleicon?:any
+    maxLength?:number
+    secureTextEntry?:boolean
     mainviewstyle?:any
     textvisible?:boolean
     text?:string
     textstyle?:any
+    onPressImageVisiblePassword?:any
 
 }
 
 const PrimaryInput:React.FC<PrimaryInputProps>=props=>{
+ 
 
     return(
         <View style={props.mainviewstyle}>
@@ -42,12 +46,17 @@ const PrimaryInput:React.FC<PrimaryInputProps>=props=>{
                 value={props.value}
                 onChangeText={props.onchangetext}
                 placeholder={props.placeholder}
+                maxLength={props.maxLength}
+                secureTextEntry={props.secureTextEntry}
+                
                 />
               { props.inputvisibleicon?
+              <TouchableOpacity onPress={props.onPressImageVisiblePassword}>
                 <PrimaryImage 
                  primaryimagestyle={styles.imagevisibleicon} 
-                 primaryimagesource={icons.notvisible}
+                 primaryimagesource={props.visibleicon}
                  />
+                 </TouchableOpacity>
                  :null
               }
             </View>
