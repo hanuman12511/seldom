@@ -8,12 +8,14 @@ const AnalysisScreen=({navigation}:any)=>{
         navigation.goBack()
     }
     return(
+        <>
         <HeaderComponent
         headertitle={String.analysistitle}
         lefticonfirst={icons.back}
         lefticonfirstvisible={true}
         onpresslefticonfirst={onPressBack}
         />
+        </>
     )
 }
 export default AnalysisScreen

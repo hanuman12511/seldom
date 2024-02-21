@@ -25,6 +25,7 @@ const LeaderBoard=({navigation}:any)=>{
             navigation.navigate('notification')
         }
 return(
+    <>
    <HeaderComponent
    headertitle={String.leaderboardtitle}
    lefticonfirst={icons.menu}
@@ -41,6 +42,7 @@ return(
    onpressrighticonsec={onPressAlarm}
 
    />
+   </>
 )
 }
 export default LeaderBoard
