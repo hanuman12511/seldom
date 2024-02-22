@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
   SafeAreaView,
   View,
@@ -13,18 +13,205 @@ import {
 
 } from '@react-navigation/drawer';
 import { icons } from '../assets/appIcons';
+import { moderateScale } from '../utils/ScalingUtils';
+import ViewLine from './ViewLine';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const CustomSidebar = ({props}:any) => {
- 
+ const [logoutuser,setLogoutuser] = useState(false)
+ const [dropdown,setDropDown] = useState(false)
+ const [dropdownname,setDropDownName] = useState('')
 
+
+ const onPressDropDonw=(value:string)=>{
+  
+  if(value!==dropdownname && dropdown===true){
+    setDropDown(dropdown)
+    setDropDownName(value)  
+  }
+  else{
+    setDropDownName(value)
+    setDropDown(!dropdown)
+  
+  }
+  
+ }
   return (
     <SafeAreaView style={{flex: 1}}>
-    
+       <DrawerContentScrollView {...props}>
+    <View style={styles.profileview}>
       <Image
         source={icons.alarm}
         style={styles.sideMenuProfileIcon}
       />
-      <DrawerContentScrollView {...props}>
+      <View>
+        <Text>Hanu</Text>
+        <Text>Hanu@gmail.com</Text>
+      </View>
+      <View>
+        <TouchableOpacity onPress={()=>setLogoutuser(!logoutuser)}>
+      <Image source={icons.power} style={styles.powericon}/>
+      </TouchableOpacity>
+        </View>
+      </View>
+      <ViewLine/>
+      {logoutuser?
+        <View style={styles.logoutview}>
+        <Text>FreeUser</Text>
+        <Image source={icons.power} style={styles.powericon}/>
+      </View>
+      :null
+      }
+      <ViewLine/>
+      <View style={styles.userhsowview}>
+        <Text>Hanu</Text>
+        <Text>change</Text>
+      </View>
+      <ViewLine/>
+      <View style={styles.menuview}>
+       <View>
+       <Image source={icons.power} style={styles.powericon}/>
+        <Text>Search</Text>
+        </View>
+        <View>
+        <Image source={icons.power} style={styles.powericon}/>
+        <Text>Leaderboard</Text>
+        </View>
+        <View>
+        <Image source={icons.power} style={styles.powericon}/>
+        <Text>Add lead/single</Text>
+        </View>
+      </View>
+      <ViewLine/>
+
+      <View style={styles.sectionview1}>
+       <View style={[styles. commanrow]}>
+         <View style={[styles.commanrowin]}>
+         <Image source={icons.power} style={styles.powericon}/>
+         <Text>My Calls</Text>
+         </View>
+        </View>
+        <View style={[styles. commanrow]}>
+          <View style={[styles. commanrowin]}>
+            <Image source={icons.power} style={styles.powericon}/>
+            <Text>Campaigns</Text>
+          </View>
+          <TouchableOpacity onPress={()=>onPressDropDonw("Campaigns")}>
+          <Image source={icons.power} style={styles.powericon}/>
+          </TouchableOpacity>
+        </View>
+        {dropdown && dropdownname==='Campaigns'?
+        <View style={[styles.subview]}>
+          <Text>Campaigns</Text>
+          <Text>Campaigns</Text>
+          <Text>Campaigns</Text>
+          <Text>Campaigns</Text>
+          <Text>Campaigns</Text>
+        </View>
+          :null
+      }
+        <View style={[styles. commanrow]}>
+        <View style={[styles. commanrowin]}>
+        <Image source={icons.power} style={styles.powericon}/>
+        <Text>Leads/Filters</Text>
+        </View>
+        <TouchableOpacity onPress={()=>{onPressDropDonw("LeadsFilters")}}>
+        
+        <Image source={icons.power} style={styles.powericon}/>
+        </TouchableOpacity>
+        </View>
+        {dropdown && dropdownname==='LeadsFilters'?
+        <View style={[styles.subview]}>
+          <Text>LeadsFilters</Text>
+          <Text>LeadsFilters</Text>
+          <Text>LeadsFilters</Text>
+        </View>
+          :null
+      }
+      </View>
+      <ViewLine/>
+      <View style={styles.sectionview2}>
+       <View style={[styles. commanrow]}>
+          <View style={[styles. commanrowin]}>
+              <Image source={icons.power} style={styles.powericon}/>
+                <Text>Call Tracking</Text>
+            </View>
+            <TouchableOpacity onPress={()=>{onPressDropDonw("CallTracking")}}>
+              <Image source={icons.power} style={styles.powericon}/>
+            </TouchableOpacity>
+        </View>
+        {dropdown && dropdownname==='CallTracking'?
+        <View style={[styles.subview]}>
+          <Text>CallTracking</Text>
+          <Text>CallTracking</Text>
+          <Text>CallTracking</Text>
+          <Text>CallTracking</Text>
+        </View>
+          :null
+      }
+        <View style={[styles. commanrow]}>
+        <View style={[styles. commanrowin]}>
+            <Image source={icons.power} style={styles.powericon}/>
+            <Text>Msg Template</Text>
+        </View>
+        <TouchableOpacity onPress={()=>{onPressDropDonw("MsgTemplate")}}>
+           
+        <Image source={icons.power} style={styles.powericon}/>
+        </TouchableOpacity>
+        </View>
+        {dropdown && dropdownname==='MsgTemplate'?
+        <View style={[styles.subview]}>
+          <Text>MsgTemplate</Text>
+          <Text>MsgTemplate</Text>
+          <Text>MsgTemplate</Text>
+          <Text>MsgTemplate</Text>
+        </View>
+          :null
+      }
+        <View style={[styles. commanrow]}>
+        <View style={[styles. commanrowin]}>
+        <Image source={icons.power} style={styles.powericon}/>
+        <Text>Labels</Text>
+        </View>
+        <TouchableOpacity onPress={()=>{onPressDropDonw("Labels")}}>
+          <Image source={icons.power} style={styles.powericon}/>
+      </TouchableOpacity>
+        </View>
+        {dropdown && dropdownname==='Labels'?
+        <View style={[styles.subview]}>
+
+          <Text>Labels</Text>
+          <Text>Labels</Text>
+          <Text>Labels</Text>
+          <Text>Labels</Text>
+        </View>
+          :null
+      }
+        
+        <View style={[styles. commanrow]}>
+        <View style={[styles. commanrowin]}>
+        <Image source={icons.power} style={styles.powericon}/>
+        <Text>Settings</Text>
+        </View>
+        <TouchableOpacity onPress={()=>{onPressDropDonw("Settings")}}>
+     
+        <Image source={icons.power} style={styles.powericon}/>
+        </TouchableOpacity>
+        </View>
+        {dropdown && dropdownname==='Settings'?
+        <View style={[styles.subview]}>
+          <Text>Setting</Text>
+          <Text>Setting</Text>
+          <Text>Setting</Text>
+          <Text>Setting</Text>
+        </View>
+          :null
+      }
+       
+      </View>
+      <ViewLine/>
+
+     
         
         
       
@@ -35,7 +222,7 @@ const CustomSidebar = ({props}:any) => {
           textAlign: 'center',
           color: 'grey'
         }}>
-        www.aboutreact.com
+        SUPPORT
       </Text>
     </SafeAreaView>
   );
@@ -59,6 +246,55 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+
+  profileview:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+    marginHorizontal:moderateScale(15)
+  },
+  logoutview:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginHorizontal:moderateScale(20),
+    marginVertical:moderateScale(10)
+  },
+  powericon:{
+    width:moderateScale(25),
+    height:moderateScale(25)
+  },
+  userhsowview:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginHorizontal:moderateScale(10),
+    marginVertical:moderateScale(10)
+  },
+  menuview:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginHorizontal:moderateScale(10),
+    marginVertical:moderateScale(10)
+  },
+  sectionview1:{},
+  sectionview2:{},
+  commanrow:{
+    flexDirection:'row',
+    alignItems:'center',
+    flex:1,
+    justifyContent:'space-between',
+    
+    marginVertical:moderateScale(5),
+    marginHorizontal:moderateScale(10),
+  },
+  commanrowin:{
+   
+    flexDirection:'row',
+    alignItems:'center',
+    },
+    subview:{
+      backgroundColor:'red',
+     
+    }
 });
 
 export default CustomSidebar;

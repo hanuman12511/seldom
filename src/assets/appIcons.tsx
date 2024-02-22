@@ -8,4 +8,5 @@ export const icons={
     analys:require('./icons/analys.png'),
     notification:require('./icons/notification.png'),
     back:require('./icons/back.png'),
+    power:require('./icons/power.png'),
 }
