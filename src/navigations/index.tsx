@@ -9,7 +9,11 @@ import Notification from "../screens/Notification";
 import AnalysisScreen from "../screens/AnalysisScreen";
 import FollowerAlarm from "../screens/FollowerAlarm";
 import {navigaionstring} from './navigationString'
+import {createDrawerNavigator} from '@react-navigation/drawer'
+import CustomSidebar from "../components/CustomSidebar";
+import { moderateScale } from "../utils/ScalingUtils";
 const Stack = createStackNavigator()
+const drawer = createDrawerNavigator()
 const StackNav=(navigation:any)=>{
     useEffect(()=>{
         console.log(getData);
@@ -20,12 +24,29 @@ const StackNav=(navigation:any)=>{
             console.log("user not work");
         }
     },[])
+
+const Drawer=()=>{
+    return(
+    <drawer.Navigator 
+        screenOptions={{
+             headerShown: false, 
+             drawerStyle: {
+                width:moderateScale(320) ,
+              },
+        }}
+        drawerContent={(props) => <CustomSidebar {...props} />}
+        >
+        <drawer.Screen name={navigaionstring.leaderboard} component={LeaderBoard}/>
+    </drawer.Navigator>
+    )
+}
+
     const NavigationScreen=()=>{
        
         if(getData){
             return <>
             <Stack.Navigator  screenOptions={{ headerShown: false}}>
-            <Stack.Screen name={navigaionstring.leaderboard} component={LeaderBoard}  />
+            <Stack.Screen name={"drawer1"} component={Drawer}  />
             <Stack.Screen name={navigaionstring.login} component={LoginScreen}  />
             <Stack.Screen name={navigaionstring.signup} component={RegisterScreen}  />
             <Stack.Screen name={navigaionstring.notification} component={Notification}  />

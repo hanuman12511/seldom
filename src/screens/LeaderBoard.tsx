@@ -10,6 +10,7 @@ const LeaderBoard=({navigation}:any)=>{
 
     const onPressDrawer=()=>{
         Alert.alert("Drawer")
+        navigation.openDrawer();
         }
         const onPressAnalys=()=>{
             Alert.alert("Analys")
