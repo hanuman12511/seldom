@@ -41,45 +41,46 @@ const CustomSidebar = ({props}:any) => {
        <DrawerContentScrollView {...props}>
     <View style={styles.profileview}>
       <Image
-        source={icons.alarm}
+        source={icons.userprofile}
         style={styles.sideMenuProfileIcon}
       />
       <View>
-        <Text>Hanu</Text>
-        <Text>Hanu@gmail.com</Text>
+        <Text style={[styles.usertext]}>Hanu</Text>
+        <Text style={[styles.emailtext]}>Hanu@gmail.com</Text>
       </View>
       <View>
         <TouchableOpacity onPress={()=>setLogoutuser(!logoutuser)}>
-      <Image source={icons.power} style={styles.powericon}/>
+      <Image source={logoutuser?icons.up:icons.down} style={styles.powericon}/>
       </TouchableOpacity>
         </View>
       </View>
       <ViewLine/>
-      {logoutuser?
+      {logoutuser?<>
         <View style={styles.logoutview}>
         <Text>FreeUser</Text>
         <Image source={icons.power} style={styles.powericon}/>
       </View>
+      <ViewLine/></>
       :null
       }
-      <ViewLine/>
+      
       <View style={styles.userhsowview}>
-        <Text>Hanu</Text>
+        <Text style={[styles.usertext]}>Hanu</Text>
         <Text>change</Text>
       </View>
       <ViewLine/>
       <View style={styles.menuview}>
-       <View>
-       <Image source={icons.power} style={styles.powericon}/>
-        <Text>Search</Text>
+       <View style={styles.centerobject}>
+              <Image source={icons.search} style={styles.powericon}/>
+              <Text style={styles.textsize}>Search</Text>
         </View>
-        <View>
-        <Image source={icons.power} style={styles.powericon}/>
-        <Text>Leaderboard</Text>
+        <View style={styles.centerobject}>
+        <Image source={icons.cup} style={styles.powericon}/>
+        <Text style={styles.textsize}>Leaderboard</Text>
         </View>
-        <View>
-        <Image source={icons.power} style={styles.powericon}/>
-        <Text>Add lead/single</Text>
+        <View style={styles.centerobject}>
+        <Image source={icons.padd} style={styles.powericon}/>
+        <Text style={styles.textsize}>Add lead/single</Text>
         </View>
       </View>
       <ViewLine/>
@@ -87,17 +88,17 @@ const CustomSidebar = ({props}:any) => {
       <View style={styles.sectionview1}>
        <View style={[styles. commanrow]}>
          <View style={[styles.commanrowin]}>
-         <Image source={icons.power} style={styles.powericon}/>
-         <Text>My Calls</Text>
+            <Image source={icons.calllist} style={styles.powericon}/>
+            <Text style={styles.textleftmargin}>My Calls</Text>
          </View>
         </View>
         <View style={[styles. commanrow]}>
           <View style={[styles. commanrowin]}>
-            <Image source={icons.power} style={styles.powericon}/>
-            <Text>Campaigns</Text>
+            <Image source={icons.alarm} style={styles.powericon}/>
+            <Text style={styles.textleftmargin}>Campaigns</Text>
           </View>
           <TouchableOpacity onPress={()=>onPressDropDonw("Campaigns")}>
-          <Image source={icons.power} style={styles.powericon}/>
+          <Image source={icons.down} style={styles.powericon}/>
           </TouchableOpacity>
         </View>
         {dropdown && dropdownname==='Campaigns'?
@@ -112,12 +113,12 @@ const CustomSidebar = ({props}:any) => {
       }
         <View style={[styles. commanrow]}>
         <View style={[styles. commanrowin]}>
-        <Image source={icons.power} style={styles.powericon}/>
-        <Text>Leads/Filters</Text>
+        <Image source={icons.group} style={styles.powericon}/>
+        <Text style={styles.textleftmargin}>Leads/Filters</Text>
         </View>
         <TouchableOpacity onPress={()=>{onPressDropDonw("LeadsFilters")}}>
         
-        <Image source={icons.power} style={styles.powericon}/>
+        <Image source={icons.down} style={styles.powericon}/>
         </TouchableOpacity>
         </View>
         {dropdown && dropdownname==='LeadsFilters'?
@@ -133,11 +134,11 @@ const CustomSidebar = ({props}:any) => {
       <View style={styles.sectionview2}>
        <View style={[styles. commanrow]}>
           <View style={[styles. commanrowin]}>
-              <Image source={icons.power} style={styles.powericon}/>
-                <Text>Call Tracking</Text>
+              <Image source={icons.call} style={styles.powericon}/>
+                <Text style={styles.textleftmargin}>Call Tracking</Text>
             </View>
             <TouchableOpacity onPress={()=>{onPressDropDonw("CallTracking")}}>
-              <Image source={icons.power} style={styles.powericon}/>
+              <Image source={icons.down} style={styles.powericon}/>
             </TouchableOpacity>
         </View>
         {dropdown && dropdownname==='CallTracking'?
@@ -151,12 +152,12 @@ const CustomSidebar = ({props}:any) => {
       }
         <View style={[styles. commanrow]}>
         <View style={[styles. commanrowin]}>
-            <Image source={icons.power} style={styles.powericon}/>
-            <Text>Msg Template</Text>
+            <Image source={icons.message} style={styles.powericon}/>
+            <Text style={styles.textleftmargin}>Msg Template</Text>
         </View>
         <TouchableOpacity onPress={()=>{onPressDropDonw("MsgTemplate")}}>
            
-        <Image source={icons.power} style={styles.powericon}/>
+        <Image source={icons.down} style={styles.powericon}/>
         </TouchableOpacity>
         </View>
         {dropdown && dropdownname==='MsgTemplate'?
@@ -170,11 +171,11 @@ const CustomSidebar = ({props}:any) => {
       }
         <View style={[styles. commanrow]}>
         <View style={[styles. commanrowin]}>
-        <Image source={icons.power} style={styles.powericon}/>
-        <Text>Labels</Text>
+        <Image source={icons.label} style={styles.powericon}/>
+        <Text style={styles.textleftmargin}>Labels</Text>
         </View>
         <TouchableOpacity onPress={()=>{onPressDropDonw("Labels")}}>
-          <Image source={icons.power} style={styles.powericon}/>
+          <Image source={icons.down} style={styles.powericon}/>
       </TouchableOpacity>
         </View>
         {dropdown && dropdownname==='Labels'?
@@ -190,12 +191,12 @@ const CustomSidebar = ({props}:any) => {
         
         <View style={[styles. commanrow]}>
         <View style={[styles. commanrowin]}>
-        <Image source={icons.power} style={styles.powericon}/>
-        <Text>Settings</Text>
+        <Image source={icons.settings} style={styles.powericon}/>
+        <Text style={styles.textleftmargin}>Settings</Text>
         </View>
         <TouchableOpacity onPress={()=>{onPressDropDonw("Settings")}}>
      
-        <Image source={icons.power} style={styles.powericon}/>
+        <Image source={icons.down} style={styles.powericon}/>
         </TouchableOpacity>
         </View>
         {dropdown && dropdownname==='Settings'?
@@ -209,12 +210,6 @@ const CustomSidebar = ({props}:any) => {
       }
        
       </View>
-      <ViewLine/>
-
-     
-        
-        
-      
       </DrawerContentScrollView>
       <Text
         style={{
@@ -231,8 +226,8 @@ const CustomSidebar = ({props}:any) => {
 const styles = StyleSheet.create({
   sideMenuProfileIcon: {
     resizeMode: 'center',
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 80,
     borderRadius: 100 / 2,
     alignSelf: 'center',
   },
@@ -246,18 +241,42 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  usertext:{
+    fontSize:moderateScale(25),
+    color:"#000"
+  },
+  emailtext:{
+    fontSize:moderateScale(16),
+    color:"#000"
+  },
+  centerobject:{
+    alignItems:'center'
+  },
+  textleftmargin:{
+    marginLeft:moderateScale(13),
+    fontSize:moderateScale(16),
+    color:'#000'
+  },
+  textsize:{
+    fontSize:moderateScale(16),
+    color:'#000',
+    marginVertical:moderateScale(10)
+    
+  },
 
   profileview:{
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'space-between',
-    marginHorizontal:moderateScale(15)
+    marginHorizontal:moderateScale(15),
+    marginVertical:moderateScale(20)
   },
   logoutview:{
     flexDirection:'row',
     justifyContent:'space-between',
     marginHorizontal:moderateScale(20),
-    marginVertical:moderateScale(10)
+    marginVertical:moderateScale(10),
+    alignItems:'center'
   },
   powericon:{
     width:moderateScale(25),
@@ -267,7 +286,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     marginHorizontal:moderateScale(10),
-    marginVertical:moderateScale(10)
+    alignItems:'center'
   },
   menuview:{
     flexDirection:'row',
