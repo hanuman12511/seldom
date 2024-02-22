@@ -4,5 +4,8 @@ export const navigaionstring={
     signup:"signup",
     notification:"notification",
     analysis:"analysis",
-    followeralarm:"followeralarm"
+    followeralarm:"followeralarm",
+    manager:"manager",
+    searchleads:"SearchLeads",
+    
 }

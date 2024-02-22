@@ -16,11 +16,13 @@ import { icons } from '../assets/appIcons';
 import { moderateScale } from '../utils/ScalingUtils';
 import ViewLine from './ViewLine';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { navigaionstring } from '../navigations/navigationString';
 
-const CustomSidebar = ({props}:any) => {
+const CustomSidebar = ({navigation,props}:any) => {
  const [logoutuser,setLogoutuser] = useState(false)
  const [dropdown,setDropDown] = useState(false)
  const [dropdownname,setDropDownName] = useState('')
+console.log(props);
 
 
  const onPressDropDonw=(value:string)=>{
@@ -36,6 +38,18 @@ const CustomSidebar = ({props}:any) => {
   }
   
  }
+
+ const onPressManage=()=>{
+      navigation.navigate(navigaionstring.manager)
+ }
+ const onPressLeaderBoard=()=>{
+  navigation.navigate(navigaionstring.leaderboard)
+}
+ const onPressSearchLeads=()=>{
+  navigation.navigate(navigaionstring.searchleads)
+}
+
+
   return (
     <SafeAreaView style={{flex: 1}}>
        <DrawerContentScrollView {...props}>
@@ -66,18 +80,25 @@ const CustomSidebar = ({props}:any) => {
       
       <View style={styles.userhsowview}>
         <Text style={[styles.usertext]}>Hanu</Text>
+        <TouchableOpacity  onPress={onPressManage}>
         <Text>change</Text>
+        </TouchableOpacity>
       </View>
       <ViewLine/>
       <View style={styles.menuview}>
+      <TouchableOpacity onPress={ onPressSearchLeads}>
        <View style={styles.centerobject}>
               <Image source={icons.search} style={styles.powericon}/>
               <Text style={styles.textsize}>Search</Text>
         </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={onPressLeaderBoard}>
         <View style={styles.centerobject}>
+        
         <Image source={icons.cup} style={styles.powericon}/>
         <Text style={styles.textsize}>Leaderboard</Text>
         </View>
+        </TouchableOpacity>
         <View style={styles.centerobject}>
         <Image source={icons.padd} style={styles.powericon}/>
         <Text style={styles.textsize}>Add lead/single</Text>

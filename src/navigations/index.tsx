@@ -12,6 +12,8 @@ import {navigaionstring} from './navigationString'
 import {createDrawerNavigator} from '@react-navigation/drawer'
 import CustomSidebar from "../components/CustomSidebar";
 import { moderateScale } from "../utils/ScalingUtils";
+import ManageWorkspace from "../screens/ManageWorkspace";
+import SearchLeads from "../screens/SearchLeads";
 const Stack = createStackNavigator()
 const drawer = createDrawerNavigator()
 const StackNav=(navigation:any)=>{
@@ -37,6 +39,8 @@ const Drawer=()=>{
         drawerContent={(props) => <CustomSidebar {...props} />}
         >
         <drawer.Screen name={navigaionstring.leaderboard} component={LeaderBoard}/>
+        <drawer.Screen name={navigaionstring.manager} component={ManageWorkspace}/>
+        <drawer.Screen name={navigaionstring.searchleads} component={SearchLeads}/>
     </drawer.Navigator>
     )
 }
