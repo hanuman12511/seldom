@@ -1,4 +1,6 @@
 export const navigaionstring={
+    dashboard:"dashboard",
+    drawer :"drawer",
     leaderboard:"leaderboard",
     login:"login",
     signup:"signup",

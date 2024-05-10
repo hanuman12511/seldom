@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {View,Text, TextInput, StyleSheet, Alert, SafeAreaView} from 'react-native'
 import PrimaryInput from '../components/PrimaryInput'
 import { String } from '../localization'
@@ -7,11 +7,18 @@ import { icons } from '../assets/appIcons'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import PrimaryButton from '../components/PrimaryButton'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { navigaionstring } from '../navigations/navigationString'
+import ScreenLoading from '../utils/ScreenLoading'
 function RegisterScreen({navigation}:any){
     const[email,setEmail] = useState('')
     const[password,setPassword] = useState('')
     const[passwordmode,setPasswordMode] = useState(true)
-    
+    const [isLoader,setLoader] =useState(false)
+    useEffect(()=>{
+        console.log("registerscreen");
+        
+        setLoader(false)
+    },[])
     const onChangeEmail=(value:any)=>{
         console.log("vale email",value);
         
@@ -25,16 +32,19 @@ function RegisterScreen({navigation}:any){
     }
 
     const onPressLogin=()=>{
-        console.log(email);
-        console.log(password);
-        Alert.alert("Login")
-        navigation.navigate('login')
+        setLoader(true)
+        navigation.navigate(navigaionstring.login)
+        setLoader(false)
         }
-
-        const onPresssignup=()=>{
+    
+    const onPresssignup=()=>{
+            setLoader(true)
             console.log(email);
             console.log(password);
-            Alert.alert("signup")
+           
+            navigation.navigate(navigaionstring.login)
+            setLoader(false)
+          
             }
     
 
@@ -45,6 +55,7 @@ function RegisterScreen({navigation}:any){
     }
    
     return(
+        <>
         <SafeAreaView>
              <KeyboardAwareScrollView>
     
@@ -120,6 +131,12 @@ function RegisterScreen({navigation}:any){
        
         </KeyboardAwareScrollView>
         </SafeAreaView>
+        {
+            isLoader?
+            <ScreenLoading/>
+           :null
+    }
+        </>
     )
 }
 export default RegisterScreen

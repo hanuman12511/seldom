@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import {
   SafeAreaView,
   View,
@@ -17,14 +17,15 @@ import { moderateScale } from '../utils/ScalingUtils';
 import ViewLine from './ViewLine';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { navigaionstring } from '../navigations/navigationString';
+import { AuthContext } from '../utils/authContext';
 
-const CustomSidebar = ({navigation,props}:any) => {
+const CustomSidebar = (props) => {
+
+const {signOut } =useContext(AuthContext)
+
  const [logoutuser,setLogoutuser] = useState(false)
  const [dropdown,setDropDown] = useState(false)
  const [dropdownname,setDropDownName] = useState('')
-console.log(props);
-
-
  const onPressDropDonw=(value:string)=>{
   
   if(value!==dropdownname && dropdown===true){
@@ -49,7 +50,10 @@ console.log(props);
   navigation.navigate(navigaionstring.searchleads)
 }
 
-
+const onPressLogout=()=>{
+  console.log("*******logout");
+  signOut()
+}
   return (
     <SafeAreaView style={{flex: 1}}>
        <DrawerContentScrollView {...props}>
@@ -72,7 +76,10 @@ console.log(props);
       {logoutuser?<>
         <View style={styles.logoutview}>
         <Text>FreeUser</Text>
-        <Image source={icons.power} style={styles.powericon}/>
+        <TouchableOpacity onPress={onPressLogout}>
+          <Image source={icons.power} style={styles.powericon}/>
+        </TouchableOpacity>
+
       </View>
       <ViewLine/></>
       :null

@@ -6,7 +6,7 @@ const storeData=async( key,value)=>{
     } catch (error) {
         console.log("error=>",error);
     }
-    console.log("data add");
+    return true
 }
 
 const getData=async(key)=>{
@@ -17,7 +17,7 @@ const getData=async(key)=>{
     } catch (error) {
         console.log("error=",error);
     }
-    console.log("data get succussfully");
+   
     return data
 }
 

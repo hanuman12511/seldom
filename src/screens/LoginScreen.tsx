@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {View,Text, TextInput, StyleSheet, Alert} from 'react-native'
 import PrimaryInput from '../components/PrimaryInput'
 import { String } from '../localization'
@@ -7,11 +7,23 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { icons } from '../assets/appIcons'
 import PrimaryButton from '../components/PrimaryButton'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import ScreenLoading from '../utils/ScreenLoading'
+import { navigaionstring } from '../navigations/navigationString'
+import { storeData } from '../utils/LocalAsyncStorage'
+import { AuthContext } from '../utils/authContext'
 function LoginScreen({navigation}:any){
     const[email,setEmail] = useState('')
     const[password,setPassword] = useState('')
     const[passwordmode,setPasswordMode] = useState(true)
-    
+    const [isLoader,setLoader] =useState(false)
+    const { signIn } = React.useContext(AuthContext);
+
+    useEffect(()=>{
+    console.log("loginscreen");
+
+        setLoader(false)
+    },[])
+
     const onChangeEmail=(value:any)=>{
         console.log("vale email",value);
         
@@ -24,23 +36,28 @@ function LoginScreen({navigation}:any){
         setPassword(value)
     }
 
-    const onPressLogin=()=>{
+    const onPressLogin= async()=>{
+     setLoader(true)
         console.log(email);
         console.log(password);
-        Alert.alert("Login")
+       signIn(email,password)
         }
     const onPressImageVisiblePassword=()=>{
-        
         setPasswordMode(!passwordmode)
     }
     const onPressSigup=()=>{
-        Alert.alert("signup")
-        navigation.navigate("signup")
+        setLoader(true)
+        navigation.navigate(navigaionstring.signup)
+        setLoader(false)
     }
     const onPressForgot=()=>{
         Alert.alert("forgot")
     }
+
+    console.log("isloadd login",isLoader);
+    
     return(
+        <>
         <KeyboardAwareScrollView>
         <View>
         <View style={styles.logo}>
@@ -102,6 +119,12 @@ function LoginScreen({navigation}:any){
             </View>
         </View>
         </KeyboardAwareScrollView>
+           {
+            isLoader?
+            <ScreenLoading/>
+           :null
+    } 
+        </>
     )
 }
 
