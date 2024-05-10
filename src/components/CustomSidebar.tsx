@@ -22,7 +22,7 @@ import { AuthContext } from '../utils/authContext';
 const CustomSidebar = (props) => {
 
 const {signOut } =useContext(AuthContext)
-
+const [isLoader,setLoader] =useState(false)
  const [logoutuser,setLogoutuser] = useState(false)
  const [dropdown,setDropDown] = useState(false)
  const [dropdownname,setDropDownName] = useState('')
@@ -51,10 +51,12 @@ const {signOut } =useContext(AuthContext)
 }
 
 const onPressLogout=()=>{
-  console.log("*******logout");
+ setLoader(true)
   signOut()
+  setLoader(false)
 }
   return (
+    <>
     <SafeAreaView style={{flex: 1}}>
        <DrawerContentScrollView {...props}>
     <View style={styles.profileview}>
@@ -248,6 +250,12 @@ const onPressLogout=()=>{
         SUPPORT
       </Text>
     </SafeAreaView>
+     {
+      isLoader?
+      <ScreenLoading/>
+     :null
+}
+    </>
   );
 };
 

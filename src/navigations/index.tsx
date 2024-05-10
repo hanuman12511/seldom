@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from "react";
 import {View,Text, ActivityIndicator} from 'react-native'
-import { getData, storeData } from "../utils/LocalAsyncStorage";
+import { getData, removeData, storeData } from "../utils/LocalAsyncStorage";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
@@ -24,21 +24,12 @@ const drawer = createDrawerNavigator()
 const StackNav=(navigation:any)=>{
     const [user,setUser] =useState(null)
     const [isLoader,setLoader] =useState(false)
-    useEffect(()=>{
-        console.log("*************index navigation************");
-        setLoader(true)
-      
-       // showuser()
-     },[])
-
     async function showuser(){
         let userdata= await getData("user5");
              setUser(userdata)
              setLoader(false)
         }
- 
-
-    const [state, dispatch] = React.useReducer(
+   const [state, dispatch] = React.useReducer(
         (prevState:any, action:any) => {
           switch (action.type) {
             case 'RESTORE_TOKEN':
@@ -72,7 +63,7 @@ const StackNav=(navigation:any)=>{
         const bootstrapAsync = async () => {
           let userToken;
           try {
-            userToken = await getData("userauth1");
+            userToken = await getData("userauth");
           } catch (e) {
            
           }
@@ -85,9 +76,9 @@ const StackNav=(navigation:any)=>{
       const authContext = React.useMemo(
         () => ({
           signIn: async (data) => {
-                dispatch({ type: 'SIGN_IN', token: storeData("userauth1",data) });
+                dispatch({ type: 'SIGN_IN', token: await storeData("userauth",data) });
             },
-          signOut: () => dispatch({ type: 'SIGN_OUT' }),
+          signOut: async() => dispatch({ type: 'SIGN_OUT',token:await removeData("userauth") }),
           signUp: async (data) => {
                 dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
           },
