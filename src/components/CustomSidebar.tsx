@@ -19,7 +19,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { navigaionstring } from '../navigations/navigationString';
 import { AuthContext } from '../utils/authContext';
 
-const CustomSidebar = (props) => {
+const CustomSidebar = ({navigation,props}:any) => {
 
 const {signOut } =useContext(AuthContext)
 const [isLoader,setLoader] =useState(false)

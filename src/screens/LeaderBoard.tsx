@@ -1,15 +1,26 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import {View,Text,Image,StyleSheet, Alert} from 'react-native'
 import { icons } from '../assets/appIcons'
 import HeaderComponent from '../components/HeaderComponent'
 import { String } from '../localization'
 
-
+import { useDispatch,useSelector } from 'react-redux'
+import { homeAction } from '../data/store/Home/homeAction'
 const LeaderBoard=({navigation}:any)=>{
 
+const data = useSelector(state=>state?.home)
+console.log("***************",data);
+
+const{error,loading,userdata}=data
+console.log(userdata);
+
+const dispatch :any= useDispatch()
+    useEffect(()=>{
+        dispatch(homeAction())
+},[])
+
     const onPressDrawer=()=>{
-        Alert.alert("Drawer")
         navigation.openDrawer();
         }
         const onPressAnalys=()=>{
