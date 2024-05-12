@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "834823755671",
+    "project_id": "leadapp-c39d8",
+    "storage_bucket": "leadapp-c39d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834823755671:android:4ecb847b9e6d8bf7dfd6d2",
+        "android_client_info": {
+          "package_name": "com.seldom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6lNAgOzGbvJtOMlIYlKagD_5vY13ZUGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
