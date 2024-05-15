@@ -77,7 +77,7 @@ const SearchLeads= () => {
     let isStoragePermitted = await requestExternalWritePermission();
     if (isCameraPermitted && isStoragePermitted) {
       launchCamera(options, (response) => {
-        console.log('Response = ', response);
+        //console.log('Response = ', response);
 
         if (response.didCancel) {
           Alert.alert('User cancelled camera picker');
@@ -93,7 +93,7 @@ const SearchLeads= () => {
           return;
         }
         const {assets} =response
-        console.log(assets);
+        //console.log(assets);
         
         console.log('base64 -> ', assets[0]?.base64);
         console.log('uri -> ', assets[0]?.uri);
@@ -123,7 +123,7 @@ const SearchLeads= () => {
     }); */
 
     launchImageLibrary(options, (response) => {
-      console.log('Response = ', response);
+      //console.log('Response = ', response);
 
       if (response.didCancel) {
         Alert.alert('User cancelled camera picker');
@@ -139,7 +139,7 @@ const SearchLeads= () => {
         return;
       }
       const {assets} =response
-      console.log(assets);
+      //console.log(assets);
       console.log('base64 -> ', response.base64);
       console.log('uri -> ', response.uri);
       console.log('width -> ', response.width);
