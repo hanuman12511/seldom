@@ -23,7 +23,7 @@ const drawer = createDrawerNavigator()
 
 const StackNav=(navigation:any)=>{
     const [user,setUser] =useState(null)
-    const [isLoader,setLoader] =useState(false)
+    const [isLoader,setLoader] =useState(true)
     async function showuser(){
         let userdata= await getData("user5");
              setUser(userdata)
@@ -134,11 +134,8 @@ return(
             <Stack.Screen name={navigaionstring.dashboard} component={NavigationScreen}  />
           </Stack.Navigator>
       
-          {
-            state.isLoading?
-            <ScreenLoading/>
-           :null
-        }
+            <ScreenLoading isLoding={state.isLoading}/>
+         
     </AuthContext.Provider>
    
         </>

@@ -17,6 +17,7 @@ console.log(userdata);
 
 const dispatch :any= useDispatch()
     useEffect(()=>{
+      
         dispatch(homeAction())
 },[])
 

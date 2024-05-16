@@ -1,11 +1,11 @@
-import { fetchHome } from "../Api"
+import { fetchHome, makeRequest } from "../Api"
 import { USERFETCH, USERSUCCESS, USERERROR } from"./Contants"
 
 
-const homeAction=async()=>(dispatch)=>{
+const homeAction=async(data)=>(dispatch)=>{
     return new Promise((resolve,reject)=>{
         dispatch({type:USERFETCH})
-        fetchHome().then((res)=>{
+       makeRequest("https://fakestoreapi.com/products").then((res)=>{
             dispatch({
             type:USERSUCCESS,
             payload:res.json()

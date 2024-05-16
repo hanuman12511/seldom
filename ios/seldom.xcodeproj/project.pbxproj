@@ -14,6 +14,16 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-seldom-seldomTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-seldom-seldomTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		FBB3888298384672AA0E5A64 /* BriemHand-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D73EAAAB5C9A4FB08343C3F1 /* BriemHand-Black.ttf */; };
+		F673E78558194E1AAD7AC02A /* BriemHand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2D33EDC264822AF64A6AC /* BriemHand-Bold.ttf */; };
+		C1A37673FF4044379B96DCFF /* BriemHand-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B33F297296944A7A83EF8CE /* BriemHand-ExtraBold.ttf */; };
+		DCF17E989BA048888AAA5649 /* BriemHand-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D19B9B1749D641B3A4FF34E3 /* BriemHand-ExtraLight.ttf */; };
+		C454621BAA5347EEA1F6B310 /* BriemHand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02CD632566D448CBAC3F36D0 /* BriemHand-Light.ttf */; };
+		5854B05277EC4E6DA4A1C456 /* BriemHand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 266FAFF6EAD349DB89EBB104 /* BriemHand-Medium.ttf */; };
+		09A103DF75BA4DD2AE6B589D /* BriemHand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5045064056B492FAC08E922 /* BriemHand-Regular.ttf */; };
+		483BE4E58B6540409E6F0726 /* BriemHand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1754592A3C94E3EB4A7AD7B /* BriemHand-SemiBold.ttf */; };
+		F0572722D54943A9B8D582DC /* BriemHand-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AAAB94205A54651934EA88B /* BriemHand-Thin.ttf */; };
+		F4104286C8A845FAA1BA15EE /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03CD701D052841CC800E84AA /* Lobster-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +54,16 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = seldom/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-seldom-seldomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seldom-seldomTests.release.xcconfig"; path = "Target Support Files/Pods-seldom-seldomTests/Pods-seldom-seldomTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		D73EAAAB5C9A4FB08343C3F1 /* BriemHand-Black.ttf */ = {isa = PBXFileReference; name = "BriemHand-Black.ttf"; path = "../assets/fonts/BriemHand-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5BE2D33EDC264822AF64A6AC /* BriemHand-Bold.ttf */ = {isa = PBXFileReference; name = "BriemHand-Bold.ttf"; path = "../assets/fonts/BriemHand-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5B33F297296944A7A83EF8CE /* BriemHand-ExtraBold.ttf */ = {isa = PBXFileReference; name = "BriemHand-ExtraBold.ttf"; path = "../assets/fonts/BriemHand-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D19B9B1749D641B3A4FF34E3 /* BriemHand-ExtraLight.ttf */ = {isa = PBXFileReference; name = "BriemHand-ExtraLight.ttf"; path = "../assets/fonts/BriemHand-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		02CD632566D448CBAC3F36D0 /* BriemHand-Light.ttf */ = {isa = PBXFileReference; name = "BriemHand-Light.ttf"; path = "../assets/fonts/BriemHand-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		266FAFF6EAD349DB89EBB104 /* BriemHand-Medium.ttf */ = {isa = PBXFileReference; name = "BriemHand-Medium.ttf"; path = "../assets/fonts/BriemHand-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E5045064056B492FAC08E922 /* BriemHand-Regular.ttf */ = {isa = PBXFileReference; name = "BriemHand-Regular.ttf"; path = "../assets/fonts/BriemHand-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D1754592A3C94E3EB4A7AD7B /* BriemHand-SemiBold.ttf */ = {isa = PBXFileReference; name = "BriemHand-SemiBold.ttf"; path = "../assets/fonts/BriemHand-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0AAAB94205A54651934EA88B /* BriemHand-Thin.ttf */ = {isa = PBXFileReference; name = "BriemHand-Thin.ttf"; path = "../assets/fonts/BriemHand-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		03CD701D052841CC800E84AA /* Lobster-Regular.ttf */ = {isa = PBXFileReference; name = "Lobster-Regular.ttf"; path = "../assets/fonts/Lobster-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +142,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				4332CB628423484BB6BF58F3 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +168,24 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		4332CB628423484BB6BF58F3 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				D73EAAAB5C9A4FB08343C3F1 /* BriemHand-Black.ttf */,
+				5BE2D33EDC264822AF64A6AC /* BriemHand-Bold.ttf */,
+				5B33F297296944A7A83EF8CE /* BriemHand-ExtraBold.ttf */,
+				D19B9B1749D641B3A4FF34E3 /* BriemHand-ExtraLight.ttf */,
+				02CD632566D448CBAC3F36D0 /* BriemHand-Light.ttf */,
+				266FAFF6EAD349DB89EBB104 /* BriemHand-Medium.ttf */,
+				E5045064056B492FAC08E922 /* BriemHand-Regular.ttf */,
+				D1754592A3C94E3EB4A7AD7B /* BriemHand-SemiBold.ttf */,
+				0AAAB94205A54651934EA88B /* BriemHand-Thin.ttf */,
+				03CD701D052841CC800E84AA /* Lobster-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +283,16 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				FBB3888298384672AA0E5A64 /* BriemHand-Black.ttf in Resources */,
+				F673E78558194E1AAD7AC02A /* BriemHand-Bold.ttf in Resources */,
+				C1A37673FF4044379B96DCFF /* BriemHand-ExtraBold.ttf in Resources */,
+				DCF17E989BA048888AAA5649 /* BriemHand-ExtraLight.ttf in Resources */,
+				C454621BAA5347EEA1F6B310 /* BriemHand-Light.ttf in Resources */,
+				5854B05277EC4E6DA4A1C456 /* BriemHand-Medium.ttf in Resources */,
+				09A103DF75BA4DD2AE6B589D /* BriemHand-Regular.ttf in Resources */,
+				483BE4E58B6540409E6F0726 /* BriemHand-SemiBold.ttf in Resources */,
+				F0572722D54943A9B8D582DC /* BriemHand-Thin.ttf in Resources */,
+				F4104286C8A845FAA1BA15EE /* Lobster-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

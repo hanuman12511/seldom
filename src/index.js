@@ -1,20 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import SplashScreen from 'react-native-splash-screen'
 import StackNav from './navigations'
 import { NavigationContainer } from '@react-navigation/native'
 import 'react-native-gesture-handler';
 import messaging from '@react-native-firebase/messaging';
-import { Alert, PermissionsAndroid } from 'react-native';
+import { Alert, PermissionsAndroid, Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import notifee from '@notifee/react-native';
 import NotificationController from './helpers/NotificationController';
 import { Provider } from 'react-redux';
 import store from './data/store/store';
+import ScreenLoading from './utils/ScreenLoading';
 
 
 const  App=()=>{
 
+  const[isLoding ,setIsLoding] = useState(true)
     PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
     useEffect(()=>{
         setTimeout(()=>{
@@ -129,12 +131,18 @@ async function show(){
               })
         
       }
+      useEffect(()=>{
+          setIsLoding(false)
+      },[])
     return(
         <>
         <Provider store={store}>
       
             <NavigationContainer>
             <StackNav/>
+            <ScreenLoading isLoding={isLoding}/>
+
+          
             </NavigationContainer>
             </Provider>
         </>

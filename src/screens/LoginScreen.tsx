@@ -11,17 +11,32 @@ import ScreenLoading from '../utils/ScreenLoading'
 import { navigaionstring } from '../navigations/navigationString'
 import { storeData } from '../utils/LocalAsyncStorage'
 import { AuthContext } from '../utils/authContext'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginAction } from '../data/store/auth/loginAction'
+import NotificationError from '../utils/NotificationError'
 function LoginScreen({navigation}:any){
+
+    const[isShowMessage,setIsShowMessage] = useState(false)
     const[email,setEmail] = useState('')
+    const[message,setMassage] = useState('')
     const[password,setPassword] = useState('')
     const[passwordmode,setPasswordMode] = useState(true)
-    const [isLoader,setLoader] =useState(false)
-    const { signIn } = React.useContext(AuthContext);
+     const[isLoding ,setIsLoding] = useState(false)
+     const { signIn } = React.useContext(AuthContext);
+    const dispatch:any =useDispatch()
+
+/* const data = useSelector(state=>state?.login)
+console.log("***************",data);
+
+const{error,loading,userdata}=data
+console.log(userdata);
+const{message,success}=userdata
+ */
 
     useEffect(()=>{
     console.log("loginscreen");
 
-        setLoader(false)
+       
     },[])
 
     const onChangeEmail=(value:any)=>{
@@ -37,24 +52,43 @@ function LoginScreen({navigation}:any){
     }
 
     const onPressLogin= async()=>{
-     setLoader(true)
-        console.log(email);
-        console.log(password);
-       signIn(email,password)
+    
+     console.log("login button");
+     
+        let params={
+            email:email,
+            password:password
+        }
+     
+        dispatch(
+            loginAction(params))
+            .then((res:any)=>res.json())
+            .then((data:any)=>signIn(data))
+            .catch((err:any)=>{
+                console.log(err);
+                setIsShowMessage(true)
+                setMassage(err)
+               
+            }
+            ) 
+            
+          
+           
+        //signIn(email,password)
         }
     const onPressImageVisiblePassword=()=>{
         setPasswordMode(!passwordmode)
     }
     const onPressSigup=()=>{
-        setLoader(true)
+    
         navigation.navigate(navigaionstring.signup)
-        setLoader(false)
+    
     }
     const onPressForgot=()=>{
         Alert.alert("forgot")
     }
 
-    console.log("isloadd login",isLoader);
+    console.log("**************",isShowMessage,"**********************");
     
     return(
         <>
@@ -119,12 +153,13 @@ function LoginScreen({navigation}:any){
             </View>
         </View>
         </KeyboardAwareScrollView>
-           {
-            isLoader?
-            <ScreenLoading/>
-           :null
-    } 
-        </>
+        <ScreenLoading isLoding={isLoding} />
+        {console.log(message,isShowMessage)
+        
+        
+        }
+ <NotificationError text={"message"} isShowMessage={isShowMessage}/> 
+    </>
     )
 }
 
@@ -158,7 +193,8 @@ inputstyle:{
 },
 textstyle:{
     paddingVertical:moderateScale(10),
-    fontSize:moderateScale(18)
+    fontSize:moderateScale(18),
+    fontFamily:"BriemHand-ExtraBold"
 },
 forgotview:{
     alignItems:'flex-end'
@@ -178,7 +214,8 @@ loginbtn:{
 },
 btntextstyle:{
     color:'#fff',
-    fontSize:moderateScale(16)
+    fontSize:moderateScale(16),
+    fontFamily:"BriemHand-ExtraBold"
 },
 signupviewstyle:{
     flexDirection:'row',
@@ -187,7 +224,8 @@ signupviewstyle:{
 },
 signuptext:{
     color:'blue',
-    marginLeft:moderateScale(5)
+    marginLeft:moderateScale(5),
+    fontFamily:"BriemHand-ExtraBold"
 }
 
 })

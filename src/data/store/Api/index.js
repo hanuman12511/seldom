@@ -21,7 +21,13 @@ export const fetchUser=async()=>{
   })
 }
 
-
+/* fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({})
+}) */
 
 export const BASE_URL = '';
 
@@ -32,21 +38,40 @@ export const BASE_URL = '';
   },
 });
  */
+
+
+/* const options = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-RapidAPI-Key': 'your-api-key',
+    'X-RapidAPI-Host': 'jokes-by-api-ninjas.p.rapidapi.com',
+  },
+  body: JSON.stringify(joke)
+};
+fetch('https://jokes-by-api-ninjas.p.rapidapi.com/v1/jokes', options)
+ */
+
+
 // Methods
+let basicurl ="http://localhost:4000/"
 export const makeRequest = async (
   url,
   params = null,
 ) => {
   return new Promise(async(resolve,reject)=>{
 
+    console.log(url);
     let info = {};
-    info.url = url;
     if (params) {
       info.method = 'POST';
-      info.headers={ 
+      /* info.headers={ 
         'content-type': 'multipart/form-data',
+      } */
+      info.headers= {
+        'Content-Type': 'application/json',
       }
-      const formData = new FormData();
+     /*  const formData = new FormData();
       for (const key in params) {
         if (key === 'images' && Array.isArray(params[key])) {
           for (const Mem of Object.keys(params[key])) {
@@ -56,19 +81,21 @@ export const makeRequest = async (
           formData.append(key, params[key]);
         }
       }
-      info.data = formData;
-    
+      console.log(formData);
+      info.data = formData; */
+    info.body=JSON.stringify(params)
       }
       else{
         info.method="get";
         info.headers= {
           "Content-Type": "application/json"
         }}
-
-        console.log(info);
-        fetch("https://jsonplaceholder.typicode.com/users",{info}).then(res=>{
+       console.log(info);
+        fetch("http://192.168.130.148:4000/loginuser",info).then(res=>{
+          console.log(" api",res);
           resolve(res)
         }).catch(error=>{
+          console.log("erooorr api");
           reject(error)
         })
   })
