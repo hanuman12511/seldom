@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {View,Text, TextInput, StyleSheet, Alert} from 'react-native'
+import {View,Text, TextInput, StyleSheet, Alert, unstable_batchedUpdates} from 'react-native'
 import PrimaryInput from '../components/PrimaryInput'
 import { String } from '../localization'
 import { moderateScale } from '../utils/ScalingUtils'
@@ -14,6 +14,7 @@ import { AuthContext } from '../utils/authContext'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginAction } from '../data/store/auth/loginAction'
 import NotificationError from '../utils/NotificationError'
+import FlashMessageRef from '../utils/NotfyRef'
 function LoginScreen({navigation}:any){
 
     const[isShowMessage,setIsShowMessage] = useState(false)
@@ -54,13 +55,13 @@ const{message,success}=userdata
     const onPressLogin= async()=>{
     
      console.log("login button");
-     
+     FlashMessageRef.show({message: "Strings.passwordValidation"});
         let params={
             email:email,
             password:password
         }
      
-        dispatch(
+  /*   dispatch(
             loginAction(params))
             .then((res:any)=>res.json())
             .then((data:any)=>signIn(data))
@@ -70,11 +71,14 @@ const{message,success}=userdata
                 setMassage(err)
                
             }
-            ) 
-            
+            )  */
+         
+         
+           
           
            
-        //signIn(email,password)
+       
+            //signIn(email,password)
         }
     const onPressImageVisiblePassword=()=>{
         setPasswordMode(!passwordmode)
@@ -88,7 +92,6 @@ const{message,success}=userdata
         Alert.alert("forgot")
     }
 
-    console.log("**************",isShowMessage,"**********************");
     
     return(
         <>
@@ -158,7 +161,7 @@ const{message,success}=userdata
         
         
         }
- <NotificationError text={"message"} isShowMessage={isShowMessage}/> 
+
     </>
     )
 }

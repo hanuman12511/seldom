@@ -17,6 +17,7 @@ import SearchLeads from "../screens/SearchLeads";
 import ScreenLoading from "../utils/ScreenLoading";
 import { useFocusEffect } from "@react-navigation/native";
 import { AuthContext } from "../utils/authContext";
+import PageScreen from "../screens/PageScreen";
 const Stack = createStackNavigator()
 const drawer = createDrawerNavigator()
 
@@ -121,6 +122,7 @@ const Drawer=()=>{
         else{
           return <>
             <Stack.Navigator  screenOptions={{ headerShown: false}}>
+                <Stack.Screen name={"page"} component={PageScreen}  />
                 <Stack.Screen name={navigaionstring.login} component={LoginScreen}  />
                 <Stack.Screen name={navigaionstring.signup} component={RegisterScreen}  />
             </Stack.Navigator>

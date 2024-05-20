@@ -12,6 +12,8 @@ import NotificationController from './helpers/NotificationController';
 import { Provider } from 'react-redux';
 import store from './data/store/store';
 import ScreenLoading from './utils/ScreenLoading';
+import { flashMessageRefObj } from './utils/NotfyRef';
+import NotificationError from './utils/NotificationError';
 
 
 const  App=()=>{
@@ -142,7 +144,7 @@ async function show(){
             <StackNav/>
             <ScreenLoading isLoding={isLoding}/>
 
-          
+            <NotificationError ref={flashMessageRefObj}/> 
             </NavigationContainer>
             </Provider>
         </>
