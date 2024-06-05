@@ -18,6 +18,7 @@ import ScreenLoading from "../utils/ScreenLoading";
 import { useFocusEffect } from "@react-navigation/native";
 import { AuthContext } from "../utils/authContext";
 import PageScreen from "../screens/PageScreen";
+import DataAddScreen from "../screens/DataAddScreen";
 const Stack = createStackNavigator()
 const drawer = createDrawerNavigator()
 
@@ -122,6 +123,7 @@ const Drawer=()=>{
         else{
           return <>
             <Stack.Navigator  screenOptions={{ headerShown: false}}>
+                <Stack.Screen name={"formadd"} component={DataAddScreen}  />
                 <Stack.Screen name={"page"} component={PageScreen}  />
                 <Stack.Screen name={navigaionstring.login} component={LoginScreen}  />
                 <Stack.Screen name={navigaionstring.signup} component={RegisterScreen}  />
